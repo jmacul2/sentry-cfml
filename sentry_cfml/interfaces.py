@@ -1,7 +1,6 @@
 import urlparse
-from django.http import QueryDict
-from sentry.web.helpers import render_to_string #@UnresolvedImport
-from sentry.interfaces import Interface #@UnresolvedImport
+from sentry.web.helpers import render_to_string
+from sentry.interfaces import Interface
 
 
 class CFMLHttp(Interface):
@@ -74,4 +73,3 @@ class CFMLHttp(Interface):
                 'url_path': [self.url_path],
             }
         }
-
