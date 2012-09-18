@@ -14,24 +14,14 @@ To install the source code:
 
 ::
 
-    $ git clone git://github.com/jmacul2/sentry-cfml.git
+    $ pip install -e git+http://github.com/jmacul2/sentry-cfml.git#egg=sentry_cfml-dev
 
 
 
 Configuration
 ~~~~~~~~~~~~~
 
-1. Add sentry-cfml to the installed django apps:
-
-::
-
-   INSTALLED_APPS = (
-      ...
-      'sentry_cfml'
-      ...
-   )
-
-2. Reference the interface in the init of the raven-cfml client:
+Reference the interface in the init of the raven-cfml client:
 
 ::
 
