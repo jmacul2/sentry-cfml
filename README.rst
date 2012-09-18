@@ -1,7 +1,7 @@
 sentry-cfml
 ==========
 
-sentry-cfml is an plugin `Sentry <https://www.getsentry.com/welcome/>`_ that provides
+sentry-cfml is a `Sentry <https://www.getsentry.com/welcome/>`_ plugin that provides
 a custom interface that is used with `raven-cfml <https://github.com/jmacul2/raven-cfml>`_.
 
 Installation
