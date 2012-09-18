@@ -2,7 +2,7 @@ import sentry_pluginname
 from sentry.plugins import Plugin
 
 
-class PluginName(Plugin):
+class CFMLPlugin(Plugin):
     title = 'Sentry CFML'
     slug = 'sentry-cfml'
     description = 'A plugin for CFML that adds a custom interface specific to request variables used in CFML'
