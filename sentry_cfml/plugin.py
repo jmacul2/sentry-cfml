@@ -1,4 +1,4 @@
-import sentry_pluginname
+import sentry_cfml
 from sentry.plugins import Plugin
 
 
