@@ -4,7 +4,12 @@ from sentry.interfaces import Interface
 
 
 class CFMLHttp(Interface):
-    score = 100
+    
+    display_score = 1050
+    score = 850
+    
+    attrs = ('url_path', 'method', 'form', 'url', 'query_string', 'cookies', 'sessions',
+             'applicaion', 'headers', 'cgi')
 
     # methods as defined by http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
     METHODS = ('GET', 'POST', 'PUT', 'OPTIONS', 'HEAD', 'DELETE', 'TRACE', 'CONNECT')
@@ -42,7 +47,7 @@ class CFMLHttp(Interface):
             'headers': self.headers,
         }
 
-    def to_string(self, event):
+    def to_string(self, event, is_public=False, **kwargs):
         return render_to_string('sentry_cfml/partial/interfaces/cfmlhttp.txt', {
             'event': event,
             'full_url': '?'.join(filter(bool, [self.url_path, self.query_string])),
@@ -51,8 +56,8 @@ class CFMLHttp(Interface):
             'query_string': self.query_string,
         })
 
-    def to_html(self, event):
-        return render_to_string('sentry_cfml/partial/interfaces/cfmlhttp.html', {
+    def to_html(self, event,  is_public=False, **kwargs):
+        context = {
             'event': event,
             'full_url': '?'.join(filter(bool, [self.url_path, self.query_string])),
             'url_path': self.url_path,
@@ -62,10 +67,21 @@ class CFMLHttp(Interface):
             'query_string': self.query_string,
             'application': self.application,
             'sessions': self.sessions,
-            'cookies': self.cookies,
             'headers': self.headers,
-            'cgi': self.cgi,
         })
+        
+        if not is_public:
+            context.update({
+                'application': self.application,
+                'sessions': self.sessions,
+                'cookies': cookies,
+                'cgi': self.cgi,
+            })
+        
+        return render_to_string('sentry_cfml/partial/interfaces/cfmlhttp.html', context)
+
+    def get_title(self):
+        return _('CFML Request')
 
     def get_search_context(self, event):
         return {
