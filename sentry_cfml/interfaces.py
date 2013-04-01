@@ -68,7 +68,7 @@ class CFMLHttp(Interface):
             'application': self.application,
             'sessions': self.sessions,
             'headers': self.headers,
-        })
+        }
         
         if not is_public:
             context.update({
