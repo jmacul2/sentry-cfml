@@ -74,7 +74,7 @@ class CFMLHttp(Interface):
             context.update({
                 'application': self.application,
                 'sessions': self.sessions,
-                'cookies': cookies,
+                'cookies': self.cookies,
                 'cgi': self.cgi,
             })
         
