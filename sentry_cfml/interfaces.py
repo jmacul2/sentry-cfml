@@ -1,6 +1,7 @@
 import urlparse
 from sentry.web.helpers import render_to_string
 from sentry.interfaces import Interface
+from django.utils.translation import ugettext as _
 
 
 class CFMLHttp(Interface):
