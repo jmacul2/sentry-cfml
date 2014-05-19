@@ -14,7 +14,7 @@ To install the source code:
 
 ::
 
-    $ pip install -e git+http://github.com/jmacul2/sentry-cfml.git#egg=sentry_cfml-dev
+    $ pip install -e git+https://github.com/jmacul2/sentry-cfml.git#egg=sentry_cfml-dev
 
 
 
